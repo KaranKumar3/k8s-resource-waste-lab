@@ -24,8 +24,8 @@ spec:
         image: nginx:alpine
         resources:
           requests:
-            memory: "8Gi"     # Increase from 512Mi → 8Gi
-            cpu: "600m"
+            memory: "32Gi"    # EXTREME: 2Gi → 32Gi = 30GB increase
+            cpu: "4000m"      # EXTREME: 600m → 4000m = 3.4 CPU increase
             
           limits:
             memory: "1Gi"
