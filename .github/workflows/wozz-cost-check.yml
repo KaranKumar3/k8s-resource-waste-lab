@@ -1,0 +1,27 @@
+name: Wozz Cost Check
+
+on:
+  pull_request:
+    paths:
+      - '**.yaml'
+      - '**.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  cost-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Required for git diff
+
+      - name: Run Wozz Cost Linter
+        uses: WozzHQ/wozz-app/action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cost-threshold: 100  # Alert if annual cost increase > $100
+          working-directory: .
