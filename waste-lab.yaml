@@ -56,11 +56,11 @@ spec:
         - containerPort: 5678
         resources:
           requests:
-            cpu: "500m"     # Increased from 25m
             memory: "32Mi"
+            cpu: "500m"     # Increased from 25m
           limits:
-            cpu: "2000m"
             memory: "2Gi"
+            cpu: "2000m"
 ---
 # C) No requests/limits at all: common real-world issue
 apiVersion: apps/v1
@@ -84,8 +84,9 @@ spec:
         command: ["sh","-c","while true; do echo ok; sleep 60; done"]
           resources:
             requests:
-              cpu: "100m"
               memory: "128Mi"
+              cpu: "100m"
+              
 ---
 # D) Replica waste: lots of pods, no traffic generator by default
 apiVersion: apps/v1
@@ -108,11 +109,12 @@ spec:
         image: nginx:alpine
         resources:
           requests:
-            cpu: "150m"
             memory: "128Mi"
+            cpu: "150m"
           limits:
-            cpu: "300m"
             memory: "256Mi"
+            cpu: "300m"
+            
         ports:
         - containerPort: 80
 ---
