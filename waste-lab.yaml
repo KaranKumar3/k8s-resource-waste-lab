@@ -24,11 +24,13 @@ spec:
         image: nginx:alpine
         resources:
           requests:
+            memory: "8Gi"     # Increase from 512Mi → 8Gi
             cpu: "600m"
-            memory: "2Gi"    # Increased from 512Mi
+            
           limits:
-            cpu: "1000m"
             memory: "1Gi"
+            cpu: "1000m"
+            
         ports:
         - containerPort: 80
 ---
