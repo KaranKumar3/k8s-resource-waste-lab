@@ -1,0 +1,8 @@
+const express = require("express");
+const app = express();
+
+app.get("/", (_, res) => res.send("Hello from Kubernetes on Windows!"));
+app.get("/healthz", (_, res) => res.status(200).send("ok"));
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`listening on ${port}`));
