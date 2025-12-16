@@ -14,7 +14,3 @@ It is intended for testing Kubernetes resource audit tools.
 Apply all manifests:
 
 kubectl apply -f k8s/
-
-Run audit:
-
-./scripts/wozz-audit.fixed.sh
