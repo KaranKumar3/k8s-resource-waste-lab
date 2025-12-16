@@ -25,7 +25,7 @@ spec:
         resources:
           requests:
             cpu: "600m"
-            memory: "512Mi"
+            memory: "2Gi"    # Increased from 512Mi
           limits:
             cpu: "1000m"
             memory: "1Gi"
@@ -56,7 +56,7 @@ spec:
         - containerPort: 5678
         resources:
           requests:
-            cpu: "25m"
+            cpu: "500m"     # Increased from 25m
             memory: "32Mi"
           limits:
             cpu: "2000m"
@@ -82,6 +82,10 @@ spec:
       - name: app
         image: busybox
         command: ["sh","-c","while true; do echo ok; sleep 60; done"]
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
 ---
 # D) Replica waste: lots of pods, no traffic generator by default
 apiVersion: apps/v1
